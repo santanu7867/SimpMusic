@@ -16,7 +16,7 @@ plugins {
 android {
     val abis = arrayOf("armeabi-v7a", "arm64-v8a", "x86_64")
 
-    namespace = "com.aura.music"
+    namespace = "com.maxrave.simpmusic"
     compileSdk = 37
 
     defaultConfig {

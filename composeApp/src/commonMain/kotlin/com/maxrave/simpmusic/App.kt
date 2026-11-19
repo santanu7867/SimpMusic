@@ -508,7 +508,16 @@ fun App(
     }
     val isTablet = windowSize.isWidthAtLeastBreakpoint(WIDTH_DP_MEDIUM_LOWER_BOUND)
     val isTabletLandscape = isTablet && currentOrientation() == Orientation.LANDSCAPE
+var showAuraSplash by remember {
+    mutableStateOf(getPlatform() == Platform.Android)
+}
 
+LaunchedEffect(Unit) {
+    if (showAuraSplash) {
+        kotlinx.coroutines.delay(2500)
+        showAuraSplash = false
+    }
+}
     AppTheme(
         themeMode = themeMode,
         themeColorSource = themeColorSource,
@@ -519,6 +528,10 @@ fun App(
         if (!isOfficialBuild) {
             UnofficialBuildScreen()
             return@AppTheme
+        }
+        if (showAuraSplash) {
+    AuraSplashScreen()
+    return@AppTheme
         }
         // Read inside AppTheme so MaterialTheme reflects the resolved scheme.
         val isLightScheme = MaterialTheme.colorScheme.background.luminance() > 0.5f

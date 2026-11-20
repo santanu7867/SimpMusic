@@ -24,15 +24,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.maxrave.simpmusic.ui.component.RippleIconButton
+import com.maxrave.simpmusic.ui.icon.ArrowBackIosNew
 import com.maxrave.simpmusic.ui.icon.SimpIcons
 import com.maxrave.simpmusic.utils.VersionManager
-import com.maxrave.simpmusic.ui.icon.ArrowBackIosNew
 import org.jetbrains.compose.resources.painterResource
 import simpmusic.composeapp.generated.resources.Res
 import simpmusic.composeapp.generated.resources.app_icon
 
-private val GlassRed = Color(0xFFFF315B)
 private val GlassBlue = Color(0xFFB9DFFF)
+private val GlassRed = Color(0xFFFF315B)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -150,7 +150,7 @@ fun CreditScreen(
             navigationIcon = {
                 Box(Modifier.padding(horizontal = 5.dp)) {
                     RippleIconButton(
-                        ArrowBackIosNew,
+                        SimpIcons.ArrowBackIosNew,
                         Modifier.size(32.dp),
                         true,
                         tint = Color.White

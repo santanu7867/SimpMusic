@@ -266,7 +266,9 @@ import simpmusic.composeapp.generated.resources.equalizer_type
 import simpmusic.composeapp.generated.resources.equalizer_type_built_in
 import simpmusic.composeapp.generated.resources.equalizer_type_system
 import simpmusic.composeapp.generated.resources.free_space
+import simpmusic.composeapp.generated.resources.gemini
 import simpmusic.composeapp.generated.resources.guest
+import simpmusic.composeapp.generated.resources.help_build_lyrics_database
 import simpmusic.composeapp.generated.resources.http
 import simpmusic.composeapp.generated.resources.import_data
 import simpmusic.composeapp.generated.resources.import_data_intro
@@ -277,6 +279,7 @@ import simpmusic.composeapp.generated.resources.import_reading_file
 import simpmusic.composeapp.generated.resources.import_result
 import simpmusic.composeapp.generated.resources.import_result_skipped
 import simpmusic.composeapp.generated.resources.invalid
+import simpmusic.composeapp.generated.resources.invalid_api_key
 import simpmusic.composeapp.generated.resources.invalid_host
 import simpmusic.composeapp.generated.resources.invalid_language_code
 import simpmusic.composeapp.generated.resources.invalid_port

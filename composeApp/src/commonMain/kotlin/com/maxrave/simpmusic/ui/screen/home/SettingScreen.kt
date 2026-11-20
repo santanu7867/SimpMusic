@@ -687,18 +687,18 @@ fun SettingScreen(
                     title = stringResource(Res.string.login_sync_section),
                     modifier = Modifier.onSizeChanged { devicesGroupHeightPx = it.height },
                 ) {
-                    val syncPeer = librarySyncState.peers.firstOrNull()
                     SettingItem(
                         title =
                             stringResource(
                                 if (getPlatform() == Platform.Android) Res.string.login_sync_android_title else Res.string.login_sync_desktop_title,
                             ),
-                        subtitle =
-                            when {
-                                getPlatform() != Platform.Android -> stringResource(Res.string.login_sync_desktop_description)
-                                syncPeer != null -> stringResource(Res.string.library_sync_send_logins_paired, syncPeer.name)
-                                else -> stringResource(Res.string.login_sync_android_description)
-                            },
+                        subtitle = stringResource(
+    if (getPlatform() != Platform.Android) {
+        Res.string.login_sync_desktop_description
+    } else {
+        Res.string.login_sync_android_description
+    }
+),
                         onClick = { showLoginSyncDialog = true },
                     )
                 }
@@ -3243,7 +3243,7 @@ fun SettingScreen(
         )
     }
 }
-
+}
 /**
  * The page's toolbar. Drawn twice, the way Playlist and Artist draw theirs: once inside the list,
  * where it scrolls away with the content, and once pinned above it.

@@ -112,7 +112,6 @@ import com.maxrave.domain.utils.LocalResource
 import com.maxrave.logger.Logger
 import com.maxrave.simpmusic.Platform
 import com.maxrave.simpmusic.expect.ui.DesktopMiniPlayerClearance
-import com.maxrave.simpmusic.expect.ui.LibrarySyncDialog
 import com.maxrave.simpmusic.expect.ui.LoginSyncDialog
 import com.maxrave.simpmusic.expect.ui.VerticalScrollBar
 import com.maxrave.simpmusic.expect.ui.syncedAgo
@@ -142,12 +141,8 @@ import com.maxrave.simpmusic.ui.icon.Error
 import com.maxrave.simpmusic.ui.icon.PeopleAlt
 import com.maxrave.simpmusic.ui.icon.PlaylistAdd
 import com.maxrave.simpmusic.ui.icon.SimpIcons
-import com.maxrave.simpmusic.ui.navigation.destination.home.AppLogDestination
 import com.maxrave.simpmusic.ui.navigation.destination.home.CreditDestination
-import com.maxrave.simpmusic.ui.navigation.destination.login.DiscordLoginDestination
-import com.maxrave.simpmusic.ui.navigation.destination.login.LastfmLoginDestination
 import com.maxrave.simpmusic.ui.navigation.destination.login.LoginDestination
-import com.maxrave.simpmusic.ui.navigation.destination.login.SpotifyLoginDestination
 import com.maxrave.simpmusic.ui.theme.md_theme_dark_primary
 import com.maxrave.simpmusic.ui.theme.parseThemeColorHex
 import com.maxrave.simpmusic.ui.theme.typo
@@ -193,14 +188,8 @@ import simpmusic.composeapp.generated.resources.invalid_url_format
 import simpmusic.composeapp.generated.resources.not_set
 import simpmusic.composeapp.generated.resources.about_us
 import simpmusic.composeapp.generated.resources.add_an_account
-import simpmusic.composeapp.generated.resources.ai
-import simpmusic.composeapp.generated.resources.ai_api_key
-import simpmusic.composeapp.generated.resources.ai_provider
 import simpmusic.composeapp.generated.resources.anonymous
-import simpmusic.composeapp.generated.resources.app_log
-import simpmusic.composeapp.generated.resources.app_log_description
 import simpmusic.composeapp.generated.resources.app_name
-import simpmusic.composeapp.generated.resources.developer_option
 import simpmusic.composeapp.generated.resources.audio
 import simpmusic.composeapp.generated.resources.audio_delay
 import simpmusic.composeapp.generated.resources.audio_delay_description
@@ -209,11 +198,8 @@ import simpmusic.composeapp.generated.resources.audio_reverb_description
 import simpmusic.composeapp.generated.resources.audio_eight_d
 import simpmusic.composeapp.generated.resources.audio_eight_d_description
 import simpmusic.composeapp.generated.resources.eight_d_unavailable
-import simpmusic.composeapp.generated.resources.author
 import simpmusic.composeapp.generated.resources.auto_backup
 import simpmusic.composeapp.generated.resources.auto_backup_description
-import simpmusic.composeapp.generated.resources.auto_check_for_update
-import simpmusic.composeapp.generated.resources.auto_check_for_update_description
 import simpmusic.composeapp.generated.resources.auto_download_liked_songs
 import simpmusic.composeapp.generated.resources.auto_download_liked_songs_description
 import simpmusic.composeapp.generated.resources.backup
@@ -222,16 +208,12 @@ import simpmusic.composeapp.generated.resources.backup_downloaded_description
 import simpmusic.composeapp.generated.resources.backup_frequency
 import simpmusic.composeapp.generated.resources.balance_media_loudness
 import simpmusic.composeapp.generated.resources.better_lyrics
-import simpmusic.composeapp.generated.resources.blog_notification_description
-import simpmusic.composeapp.generated.resources.blog_notification_title
-import simpmusic.composeapp.generated.resources.buy_me_a_coffee
 import simpmusic.composeapp.generated.resources.cancel
 import simpmusic.composeapp.generated.resources.animated_artwork_info
 import simpmusic.composeapp.generated.resources.canvas_info
 import simpmusic.composeapp.generated.resources.categories_sponsor_block
 import simpmusic.composeapp.generated.resources.change
 import simpmusic.composeapp.generated.resources.change_language_warning
-import simpmusic.composeapp.generated.resources.check_for_update
 import simpmusic.composeapp.generated.resources.checking
 import simpmusic.composeapp.generated.resources.clear
 import simpmusic.composeapp.generated.resources.clear_canvas_cache
@@ -280,12 +262,8 @@ import simpmusic.composeapp.generated.resources.equalizer_description
 import simpmusic.composeapp.generated.resources.equalizer_type
 import simpmusic.composeapp.generated.resources.equalizer_type_built_in
 import simpmusic.composeapp.generated.resources.equalizer_type_system
-import simpmusic.composeapp.generated.resources.follow_me_on_x
 import simpmusic.composeapp.generated.resources.free_space
-import simpmusic.composeapp.generated.resources.gemini
 import simpmusic.composeapp.generated.resources.guest
-import simpmusic.composeapp.generated.resources.help_build_lyrics_database
-import simpmusic.composeapp.generated.resources.help_build_lyrics_database_description
 import simpmusic.composeapp.generated.resources.http
 import simpmusic.composeapp.generated.resources.import_data
 import simpmusic.composeapp.generated.resources.import_data_intro
@@ -295,11 +273,7 @@ import simpmusic.composeapp.generated.resources.import_progress_songs
 import simpmusic.composeapp.generated.resources.import_reading_file
 import simpmusic.composeapp.generated.resources.import_result
 import simpmusic.composeapp.generated.resources.import_result_skipped
-import simpmusic.composeapp.generated.resources.intro_login_to_discord
-import simpmusic.composeapp.generated.resources.intro_login_to_lastfm
-import simpmusic.composeapp.generated.resources.intro_login_to_spotify
 import simpmusic.composeapp.generated.resources.invalid
-import simpmusic.composeapp.generated.resources.invalid_api_key
 import simpmusic.composeapp.generated.resources.invalid_host
 import simpmusic.composeapp.generated.resources.invalid_language_code
 import simpmusic.composeapp.generated.resources.invalid_port
@@ -312,28 +286,14 @@ import simpmusic.composeapp.generated.resources.kill_service_on_exit_description
 import simpmusic.composeapp.generated.resources.language
 import simpmusic.composeapp.generated.resources.last_backup
 import simpmusic.composeapp.generated.resources.last_checked_at
-import simpmusic.composeapp.generated.resources.lastfm_integration
 import simpmusic.composeapp.generated.resources.limit_player_cache
 import simpmusic.composeapp.generated.resources.listening_history
 import simpmusic.composeapp.generated.resources.local_tracking_description
 import simpmusic.composeapp.generated.resources.local_tracking_title
-import simpmusic.composeapp.generated.resources.log_in_to_discord
-import simpmusic.composeapp.generated.resources.log_in_to_lastfm
-import simpmusic.composeapp.generated.resources.log_in_to_spotify
 import simpmusic.composeapp.generated.resources.log_out
-import simpmusic.composeapp.generated.resources.log_out_from_discord
-import simpmusic.composeapp.generated.resources.log_out_from_lastfm
-import simpmusic.composeapp.generated.resources.log_out_from_spotify
 import simpmusic.composeapp.generated.resources.log_out_warning
 import simpmusic.composeapp.generated.resources.logged_in
 import simpmusic.composeapp.generated.resources.logged_in_as
-import simpmusic.composeapp.generated.resources.library_sync_not_paired_android
-import simpmusic.composeapp.generated.resources.library_sync_not_paired_desktop
-import simpmusic.composeapp.generated.resources.library_sync_peer_not_synced
-import simpmusic.composeapp.generated.resources.library_sync_peer_synced
-import simpmusic.composeapp.generated.resources.library_sync_send_logins_paired
-import simpmusic.composeapp.generated.resources.library_sync_title
-import simpmusic.composeapp.generated.resources.library_sync_windows_public
 import simpmusic.composeapp.generated.resources.login_sync_android_description
 import simpmusic.composeapp.generated.resources.login_sync_android_title
 import simpmusic.composeapp.generated.resources.login_sync_desktop_description
@@ -366,7 +326,6 @@ import simpmusic.composeapp.generated.resources.lyrics_style_apple_music
 import simpmusic.composeapp.generated.resources.lyrics_style_classic
 import simpmusic.composeapp.generated.resources.main_lyrics_provider
 import simpmusic.composeapp.generated.resources.manage_your_youtube_accounts
-import simpmusic.composeapp.generated.resources.maxrave_dev
 import simpmusic.composeapp.generated.resources.monthly
 import simpmusic.composeapp.generated.resources.never
 import simpmusic.composeapp.generated.resources.no_account
@@ -652,9 +611,6 @@ fun SettingScreen(
     var showLoginSyncDialog by rememberSaveable {
         mutableStateOf(false)
     }
-    var showLibrarySyncDialog by rememberSaveable {
-        mutableStateOf(false)
-    }
     var showThirdPartyLibraries by rememberSaveable {
         mutableStateOf(false)
     }
@@ -744,32 +700,6 @@ fun SettingScreen(
                                 else -> stringResource(Res.string.login_sync_android_description)
                             },
                         onClick = { showLoginSyncDialog = true },
-                    )
-                    SettingItem(
-                        title = stringResource(Res.string.library_sync_title),
-                        subtitle =
-                            when {
-                                librarySyncState.problem == LibrarySyncProblem.WINDOWS_PUBLIC_NETWORK -> {
-                                    stringResource(Res.string.library_sync_windows_public)
-                                }
-
-                                syncPeer == null -> {
-                                    stringResource(
-                                        if (getPlatform() == Platform.Android) {
-                                            Res.string.library_sync_not_paired_android
-                                        } else {
-                                            Res.string.library_sync_not_paired_desktop
-                                        },
-                                    )
-                                }
-
-                                else -> {
-                                    val names = librarySyncState.peers.joinToString { it.name }
-                                    librarySyncState.lastSyncAt?.let { stringResource(Res.string.library_sync_peer_synced, names, syncedAgo(it)) }
-                                        ?: stringResource(Res.string.library_sync_peer_not_synced, names)
-                                }
-                            },
-                        onClick = { showLibrarySyncDialog = true },
                     )
                 }
                 SettingGroup(title = stringResource(Res.string.user_interface)) {
@@ -2123,125 +2053,7 @@ fun SettingScreen(
                 )
             }
         }
-        item(key = "spotify") {
-            SettingGroup(title = stringResource(Res.string.spotify)) {
-                SettingItem(
-                    // The title follows the state: a row that still reads "Log in" while logged in
-                    // gives no clue that tapping it signs you out.
-                    title =
-                        if (spotifyLoggedIn) {
-                            stringResource(Res.string.log_out_from_spotify)
-                        } else {
-                            stringResource(Res.string.log_in_to_spotify)
-                        },
-                    subtitle =
-                        if (spotifyLoggedIn) {
-                            stringResource(Res.string.logged_in)
-                        } else {
-                            stringResource(Res.string.intro_login_to_spotify)
-                        },
-                    onClick = {
-                        if (spotifyLoggedIn) {
-                            viewModel.confirmLogOut(
-                                confirmLabel = runBlocking { getString(Res.string.log_out_from_spotify) },
-                            ) { viewModel.setSpotifyLogIn(false) }
-                        } else {
-                            navController.navigate(SpotifyLoginDestination)
-                        }
-                    },
-                )
-                SettingItem(
-                    title = stringResource(Res.string.enable_spotify_lyrics),
-                    subtitle = stringResource(Res.string.spotify_lyrícs_info),
-                    switch = (spotifyLyrics to { viewModel.setSpotifyLyrics(it) }),
-                    isEnable = spotifyLoggedIn,
-                )
-                SettingItem(
-                    title = stringResource(Res.string.enable_canvas),
-                    subtitle = stringResource(Res.string.canvas_info),
-                    switch = (spotifyCanvas to { viewModel.setSpotifyCanvas(it) }),
-                    isEnable = spotifyLoggedIn,
-                )
-                // Sits with the canvas because it replaces it, but carries no isEnable: the two
-                // rows above need a Spotify session and this one needs no account at all, so
-                // gating it on spotifyLoggedIn would lock it away from the users it works for.
-                SettingItem(
-                    title = stringResource(Res.string.enable_animated_artwork),
-                    subtitle = stringResource(Res.string.animated_artwork_info),
-                    switch = (amAnimatedArtwork to { viewModel.setAMAnimatedArtwork(it) }),
-                )
-            }
-        }
-        item(key = "discord") {
-            SettingGroup(title = stringResource(Res.string.discord_integration)) {
-                SettingItem(
-                    title =
-                        if (discordLoggedIn) {
-                            stringResource(Res.string.log_out_from_discord)
-                        } else {
-                            stringResource(Res.string.log_in_to_discord)
-                        },
-                    subtitle =
-                        if (discordLoggedIn) {
-                            stringResource(Res.string.logged_in)
-                        } else {
-                            stringResource(Res.string.intro_login_to_discord)
-                        },
-                    onClick = {
-                        if (discordLoggedIn) {
-                            viewModel.confirmLogOut(
-                                confirmLabel = runBlocking { getString(Res.string.log_out_from_discord) },
-                            ) { viewModel.logOutDiscord() }
-                        } else {
-                            navController.navigate(DiscordLoginDestination)
-                        }
-                    },
-                )
-                SettingItem(
-                    title = stringResource(Res.string.enable_rich_presence),
-                    subtitle = stringResource(Res.string.rich_presence_info),
-                    switch = (richPresenceEnabled to { viewModel.setDiscordRichPresenceEnabled(it) }),
-                    isEnable = discordLoggedIn,
-                )
-            }
-        }
-        // Hidden entirely when the build carries no Last.fm credentials — a FOSS build, or a full
-        // build whose local.properties has no key.
-        if (viewModel.lastfmAvailable) {
-            item(key = "lastfm") {
-                SettingGroup(title = stringResource(Res.string.lastfm_integration)) {
-                    SettingItem(
-                        title =
-                            if (lastfmLoggedIn) {
-                                stringResource(Res.string.log_out_from_lastfm)
-                            } else {
-                                stringResource(Res.string.log_in_to_lastfm)
-                            },
-                        subtitle =
-                            if (lastfmLoggedIn) {
-                                stringResource(Res.string.logged_in_as, lastfmUsername)
-                            } else {
-                                stringResource(Res.string.intro_login_to_lastfm)
-                            },
-                        onClick = {
-                            if (lastfmLoggedIn) {
-                                viewModel.confirmLogOut(
-                                    confirmLabel = runBlocking { getString(Res.string.log_out_from_lastfm) },
-                                ) { viewModel.logOutLastfm() }
-                            } else {
-                                navController.navigate(LastfmLoginDestination)
-                            }
-                        },
-                    )
-                    SettingItem(
-                        title = stringResource(Res.string.enable_scrobbling),
-                        subtitle = stringResource(Res.string.scrobbling_info),
-                        switch = (lastfmScrobbleEnabled to { viewModel.setLastfmScrobbleEnabled(it) }),
-                        isEnable = lastfmLoggedIn,
-                    )
-                }
-            }
-        }
+        
         item(key = "sponsor_block") {
             SettingGroup(
                 title = stringResource(Res.string.sponsorBlock),
@@ -2797,88 +2609,8 @@ fun SettingScreen(
                         navController.navigate(CreditDestination)
                     },
                 )
-                SettingItem(
-                    title = stringResource(Res.string.auto_check_for_update),
-                    subtitle = stringResource(Res.string.auto_check_for_update_description),
-                    switch = (autoCheckUpdate to { viewModel.setAutoCheckUpdate(it) }),
-                )
-                SettingItem(
-                    title = stringResource(Res.string.update_channel),
-                    subtitle =
-                        if (updateChannel == DataStoreManager.FDROID) {
-                            "F-Droid"
-                        } else {
-                            "SimpMusic GitHub Release"
-                        },
-                    onClick = {
-                        viewModel.setAlertData(
-                            SettingAlertState(
-                                title = runBlocking { getString(Res.string.update_channel) },
-                                selectOne =
-                                    SettingAlertState.SelectData(
-                                        listSelect =
-                                            listOf(
-                                                (updateChannel == DataStoreManager.FDROID) to "F-Droid",
-                                                (updateChannel == DataStoreManager.GITHUB) to "SimpMusic GitHub Release",
-                                            ),
-                                    ),
-                                confirm =
-                                    runBlocking { getString(Res.string.change) } to { state ->
-                                        viewModel.setUpdateChannel(
-                                            when (state.selectOne?.getSelected()) {
-                                                "F-Droid" -> DataStoreManager.FDROID
-                                                "SimpMusic GitHub Release" -> DataStoreManager.GITHUB
-                                                else -> DataStoreManager.GITHUB
-                                            },
-                                        )
-                                    },
-                                dismiss = runBlocking { getString(Res.string.cancel) },
-                            ),
-                        )
-                    },
-                )
-                SettingItem(
-                    title = stringResource(Res.string.check_for_update),
-                    subtitle = checkForUpdateSubtitle,
-                    onClick = {
-                        sharedViewModel.checkForUpdate()
-                    },
-                )
-                SettingItem(
-                    title = stringResource(Res.string.author),
-                    subtitle = stringResource(Res.string.maxrave_dev),
-                    onClick = {
-                        uriHandler.openUri("https://github.com/maxrave-dev")
-                    },
-                )
-                SettingItem(
-                    title = stringResource(Res.string.follow_me_on_x),
-                    subtitle = "@maxrave_dev",
-                    onClick = {
-                        uriHandler.openUri("https://x.com/maxrave_dev")
-                    },
-                )
-                SettingItem(
-                    title = stringResource(Res.string.developer_blog),
-                    subtitle = stringResource(Res.string.developer_blog_tagline),
-                    onClick = {
-                        uriHandler.openUri("https://www.simpmusic.org/blogs")
-                    },
-                )
-                if (getPlatform() == Platform.Android) {
-                    SettingItem(
-                        title = stringResource(Res.string.blog_notification_title),
-                        subtitle = stringResource(Res.string.blog_notification_description),
-                        switch = (blogNotificationEnabled to { viewModel.setBlogNotificationEnabled(it) }),
-                    )
-                }
-                SettingItem(
-                    title = stringResource(Res.string.buy_me_a_coffee),
-                    subtitle = stringResource(Res.string.donation),
-                    onClick = {
-                        uriHandler.openUri("https://github.com/sponsors/maxrave-dev")
-                    },
-                )
+                
+                
                 SettingItem(
                     title = stringResource(Res.string.third_party_libraries),
                     subtitle = stringResource(Res.string.description_and_licenses),
@@ -2888,17 +2620,7 @@ fun SettingScreen(
                 )
             }
         }
-        item(key = "developer_option") {
-            SettingGroup(title = stringResource(Res.string.developer_option)) {
-                SettingItem(
-                    title = stringResource(Res.string.app_log),
-                    subtitle = stringResource(Res.string.app_log_description),
-                    onClick = {
-                        navController.navigate(AppLogDestination)
-                    },
-                )
-            }
-        }
+        
         item(key = "end") {
             EndOfPage()
         }
@@ -2962,7 +2684,6 @@ fun SettingScreen(
         // are not translated.
         val presetColors =
             listOf(
-                "FF1ED760" to "Spotify",
                 "FFFF5500" to "SoundCloud",
                 "FFFA243C" to "Apple Music",
                 "FFFF0000" to "YouTube Music",
@@ -3056,10 +2777,7 @@ fun SettingScreen(
     }
     if (showLoginSyncDialog) {
         LoginSyncDialog(onDismiss = { showLoginSyncDialog = false })
-    }
-    if (showLibrarySyncDialog) {
-        LibrarySyncDialog(onDismiss = { showLibrarySyncDialog = false })
-    }
+    
     if (showYouTubeAccountDialog) {
         BasicAlertDialog(
             onDismissRequest = { },

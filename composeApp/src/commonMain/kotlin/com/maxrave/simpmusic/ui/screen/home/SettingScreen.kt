@@ -188,6 +188,9 @@ import simpmusic.composeapp.generated.resources.invalid_url_format
 import simpmusic.composeapp.generated.resources.not_set
 import simpmusic.composeapp.generated.resources.about_us
 import simpmusic.composeapp.generated.resources.add_an_account
+import simpmusic.composeapp.generated.resources.ai
+import simpmusic.composeapp.generated.resources.ai_api_key
+import simpmusic.composeapp.generated.resources.ai_provider
 import simpmusic.composeapp.generated.resources.anonymous
 import simpmusic.composeapp.generated.resources.app_name
 import simpmusic.composeapp.generated.resources.audio
@@ -1810,11 +1813,7 @@ fun SettingScreen(
                         )
                     },
                 )
-                SettingItem(
-                    title = stringResource(Res.string.help_build_lyrics_database),
-                    subtitle = stringResource(Res.string.help_build_lyrics_database_description),
-                    switch = (helpBuildLyricsDatabase to { viewModel.setHelpBuildLyricsDatabase(it) }),
-                )
+              
                 SettingItem(
                     title = stringResource(Res.string.contributor_name),
                     subtitle = contributor.first.ifEmpty { stringResource(Res.string.anonymous) },

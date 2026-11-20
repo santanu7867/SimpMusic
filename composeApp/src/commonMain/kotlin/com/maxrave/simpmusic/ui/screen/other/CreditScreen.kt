@@ -108,16 +108,7 @@ fun CreditScreen(
             fontSize = 13.sp,
         )
 
-        // Developer - clickable, opens dev blog
-        Text(
-            text = stringResource(Res.string.maxrave_dev),
-            style = typo().bodyMedium,
-            textDecoration = TextDecoration.Underline,
-            modifier =
-                Modifier.clickable {
-                    openUrl("https://maxrave.dev")
-                },
-        )
+
 
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -134,120 +125,9 @@ fun CreditScreen(
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        CompositionLocalProvider(LocalMinimumInteractiveComponentSize provides Dp.Unspecified) {
-            // Website button
-            TextButton(
-                onClick = {
-                    openUrl("https://simpmusic.org")
-                },
-                modifier =
-                    Modifier
-                        .align(Alignment.Start)
-                        .padding(horizontal = 25.dp)
-                        .defaultMinSize(minHeight = 1.dp, minWidth = 1.dp),
-            ) {
-                Text(text = stringResource(Res.string.website))
-            }
+        
 
-            // Developer blog button
-            TextButton(
-                onClick = {
-                    openUrl("https://www.simpmusic.org/blogs")
-                },
-                modifier =
-                    Modifier
-                        .align(Alignment.Start)
-                        .padding(horizontal = 25.dp)
-                        .defaultMinSize(minHeight = 1.dp, minWidth = 1.dp),
-            ) {
-                Column {
-                    Text(text = stringResource(Res.string.developer_blog))
-                    Text(
-                        text = stringResource(Res.string.developer_blog_tagline),
-                        style = typo().bodySmall,
-                    )
-                }
-            }
-
-            // GitHub button
-            TextButton(
-                onClick = {
-                    openUrl("https://github.com/maxrave-dev/SimpMusic")
-                },
-                modifier =
-                    Modifier
-                        .align(Alignment.Start)
-                        .padding(horizontal = 25.dp)
-                        .defaultMinSize(minHeight = 1.dp, minWidth = 1.dp),
-            ) {
-                Text(text = stringResource(Res.string.github))
-            }
-
-            // Issue tracker button
-            TextButton(
-                onClick = {
-                    openUrl("https://github.com/maxrave-dev/SimpMusic/issues")
-                },
-                modifier =
-                    Modifier
-                        .align(Alignment.Start)
-                        .padding(horizontal = 25.dp)
-                        .defaultMinSize(minHeight = 1.dp, minWidth = 1.dp),
-            ) {
-                Text(text = stringResource(Res.string.issue_tracker))
-            }
-
-            // Buy me a coffee button
-            TextButton(
-                onClick = {
-                    openUrl("https://github.com/sponsors/maxrave-dev")
-                },
-                modifier =
-                    Modifier
-                        .align(Alignment.Start)
-                        .padding(horizontal = 25.dp)
-                        .defaultMinSize(minHeight = 1.dp, minWidth = 1.dp),
-            ) {
-                Text(text = stringResource(Res.string.buy_me_a_coffee))
-            }
-        }
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        // README's "Legal Disclaimer & Terms of Use", bundled as files/legal_disclaimer.md: a copy,
-        // so the two are updated together.
-        val legalDisclaimer by produceState<String?>(null) {
-            value = Res.readBytes("files/legal_disclaimer.md").decodeToString()
-        }
-        legalDisclaimer?.let {
-            Markdown(
-                it,
-                typography =
-                    markdownTypography(
-                        h2 = typo().titleMedium,
-                        h3 = typo().labelSmall,
-                        text = typo().bodyMedium,
-                        paragraph = typo().bodyMedium,
-                        bullet = typo().bodyMedium,
-                        textLink = TextLinkStyles(SpanStyle(textDecoration = TextDecoration.Underline)),
-                    ),
-                modifier =
-                    Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 25.dp, vertical = 10.dp),
-            )
-        }
-
-        // Copyright text
-        Text(
-            text = stringResource(Res.string.copyright, now().year.toString()),
-            style = typo().bodySmall,
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 25.dp, vertical = 5.dp),
-            textAlign = TextAlign.Start,
-        )
+    
 
         // Bottom spacing
         Spacer(modifier = Modifier.height(200.dp))

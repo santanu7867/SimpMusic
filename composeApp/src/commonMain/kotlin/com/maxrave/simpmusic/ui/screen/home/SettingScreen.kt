@@ -2591,15 +2591,7 @@ fun SettingScreen(
                         }
                     },
                 )
-                SettingItem(
-                    title = stringResource(Res.string.import_data),
-                    subtitle = stringResource(Res.string.import_playlists_from_other_apps),
-                    onClick = {
-                        coroutineScope.launch {
-                            importLauncher.launch()
-                        }
-                    },
-                )
+            
             }
         }
         item(key = "about_us") {
@@ -2612,20 +2604,11 @@ fun SettingScreen(
                     },
                 )
                 
-                
-                SettingItem(
-                    title = stringResource(Res.string.third_party_libraries),
-                    subtitle = stringResource(Res.string.description_and_licenses),
-                    onClick = {
-                        showThirdPartyLibraries = true
-                    },
-                )
+            
             }
         }
         
-        item(key = "end") {
-            EndOfPage()
-        }
+    
     }
     VerticalScrollBar(
         scrollState = settingListState,

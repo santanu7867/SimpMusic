@@ -1,66 +1,37 @@
+
 package com.maxrave.simpmusic.ui.screen.other
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.MarqueeAnimationMode
-import androidx.compose.foundation.basicMarquee
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.focusable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.LocalMinimumInteractiveComponentSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.produceState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.maxrave.domain.extension.now
-import com.maxrave.simpmusic.expect.openUrl
-import com.maxrave.simpmusic.expect.ui.DesktopMiniPlayerClearance
-import com.maxrave.simpmusic.expect.ui.VerticalScrollBar
-import com.maxrave.simpmusic.extension.ultraThinBarStyle
 import com.maxrave.simpmusic.ui.component.RippleIconButton
-import com.maxrave.simpmusic.ui.icon.ArrowBackIosNew
 import com.maxrave.simpmusic.ui.icon.SimpIcons
-import com.maxrave.simpmusic.ui.theme.typo
 import com.maxrave.simpmusic.utils.VersionManager
-import com.mikepenz.markdown.m3.Markdown
-import com.mikepenz.markdown.m3.markdownTypography
-import dev.chrisbanes.haze.HazeInput
-import dev.chrisbanes.haze.blur.hazeBlur
-import dev.chrisbanes.haze.hazeSource
-import dev.chrisbanes.haze.rememberHazeState
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.stringResource
-import simpmusic.composeapp.generated.resources.*
+import simpmusic.composeapp.generated.resources.Res
+import simpmusic.composeapp.generated.resources.app_icon
+
+private val GlassRed = Color(0xFFFF315B)
+private val GlassBlue = Color(0xFFB9DFFF)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -68,114 +39,195 @@ fun CreditScreen(
     paddingValues: PaddingValues,
     navController: NavController,
 ) {
-    val hazeState = rememberHazeState()
     val scrollState = rememberScrollState()
-    Column(
-        modifier =
-            Modifier
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                Brush.verticalGradient(
+                    listOf(
+                        Color(0xFF050507),
+                        Color(0xFF18070D),
+                        Color(0xFF080609)
+                    )
+                )
+            )
+    ) {
+        Column(
+            modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .padding(top = 64.dp)
+                .padding(top = 75.dp)
                 .verticalScroll(scrollState)
-                .hazeSource(state = hazeState),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Spacer(modifier = Modifier.height(30.dp))
+                .padding(horizontal = 18.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(Modifier.height(18.dp))
 
-        // App icon
-        Image(
-            painter = painterResource(Res.drawable.app_icon),
-            contentDescription = "App Icon",
-            modifier =
-                Modifier
-                    .size(150.dp)
-                    .clip(CircleShape),
-        )
-
-        Spacer(modifier = Modifier.height(30.dp))
-
-        // App name
-        Text(
-            text = stringResource(Res.string.app_name),
-            style = typo().titleLarge,
-            fontSize = 22.sp,
-        )
-
-        // Version
-        Text(
-            text = stringResource(Res.string.version_format, VersionManager.getVersionName()),
-            style = typo().bodySmall,
-            fontSize = 13.sp,
-        )
-
-
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        // App description
-        Text(
-            text = stringResource(Res.string.credit_app),
-            style = typo().bodyMedium,
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 25.dp),
-            textAlign = TextAlign.Start,
-        )
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        
-
-    
-
-        // Bottom spacing
-        Spacer(modifier = Modifier.height(200.dp))
-    }
-    VerticalScrollBar(
-        scrollState = scrollState,
-        modifier = Modifier.padding(top = paddingValues.calculateTopPadding() + 64.dp, bottom = DesktopMiniPlayerClearance),
-    )
-    TopAppBar(
-        modifier =
-            Modifier
-                .hazeBlur(HazeInput.Sources(hazeState), ultraThinBarStyle()),
-        title = {
-            Text(
-                text = stringResource(Res.string.app_name),
-                style = typo().titleMedium,
-                maxLines = 1,
-                modifier =
-                    Modifier
+            // AURA MUSIC GLASS WORDMARK
+            GlassCard {
+                Text(
+                    text = "AURA | Music",
+                    modifier = Modifier
                         .fillMaxWidth()
-                        .wrapContentHeight(
-                            align = Alignment.CenterVertically,
-                        ).basicMarquee(
-                            iterations = Int.MAX_VALUE,
-                            animationMode = MarqueeAnimationMode.Immediately,
-                        ).focusable(),
-            )
-        },
-        navigationIcon = {
-            Box(Modifier.padding(horizontal = 5.dp)) {
-                RippleIconButton(
-                    SimpIcons.ArrowBackIosNew,
-                    Modifier
-                        .size(32.dp),
-                    true,
-                    tint = MaterialTheme.colorScheme.onSurface,
+                        .padding(vertical = 25.dp),
+                    color = Color.White,
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 2.sp,
+                    textAlign = TextAlign.Center
+                )
+            }
+
+            Spacer(Modifier.height(20.dp))
+
+            // ABOUT AURA MUSIC
+            GlassCard {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    navController.navigateUp()
+                    Image(
+                        painter = painterResource(Res.drawable.app_icon),
+                        contentDescription = "AURA Music Logo",
+                        modifier = Modifier
+                            .size(90.dp)
+                            .clip(RoundedCornerShape(22.dp))
+                    )
+
+                    Spacer(Modifier.width(16.dp))
+
+                    Column {
+                        Text(
+                            text = "About AURA Music",
+                            color = Color.White,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+
+                        Spacer(Modifier.height(8.dp))
+
+                        Text(
+                            text = "AURA Music is a modern, fast and feature-rich music player designed for music lovers. Enjoy your favorite songs with a beautiful interface, powerful features and smooth performance.",
+                            color = Color(0xFFD6D2DC),
+                            fontSize = 14.sp,
+                            lineHeight = 21.sp
+                        )
+                    }
                 }
             }
-        },
-        colors =
-            TopAppBarDefaults.topAppBarColors(
-                Color.Transparent,
-                Color.Unspecified,
-                Color.Unspecified,
-                Color.Unspecified,
-                Color.Unspecified,
-            ),
+
+            Spacer(Modifier.height(20.dp))
+
+            // APP INFORMATION
+            GlassCard {
+                Text(
+                    text = "ⓘ  App Information",
+                    color = Color.White,
+                    fontSize = 21.sp,
+                    fontWeight = FontWeight.Bold
+                )
+
+                Spacer(Modifier.height(18.dp))
+
+                InfoRow("App Name", "AURA Music")
+                InfoRow("Version", VersionManager.getVersionName())
+                InfoRow("Developer", "AURA Studio")
+            }
+
+            Spacer(Modifier.height(35.dp))
+        }
+
+        TopAppBar(
+            title = {
+                Text(
+                    text = "About",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
+            },
+            navigationIcon = {
+                Box(Modifier.padding(horizontal = 5.dp)) {
+                    RippleIconButton(
+                        SimpIcons.ArrowBackIosNew,
+                        Modifier.size(32.dp),
+                        true,
+                        tint = Color.White
+                    ) {
+                        navController.navigateUp()
+                    }
+                }
+            },
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = Color.Transparent
+            )
+        )
+    }
+}
+
+@Composable
+private fun GlassCard(
+    content: @Composable ColumnScope.() -> Unit
+) {
+    val shape = RoundedCornerShape(26.dp)
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                Brush.linearGradient(
+                    listOf(
+                        Color(0x55424A5B),
+                        Color(0x33201825),
+                        Color(0x55401020)
+                    )
+                ),
+                shape
+            )
+            .border(
+                width = 1.dp,
+                brush = Brush.linearGradient(
+                    listOf(GlassBlue, GlassRed, GlassBlue)
+                ),
+                shape = shape
+            )
+            .padding(20.dp),
+        content = content
     )
+}
+
+@Composable
+private fun InfoRow(
+    label: String,
+    value: String
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 7.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = label,
+            color = Color(0xFFD0CDDA),
+            fontSize = 15.sp,
+            modifier = Modifier.weight(1f)
+        )
+
+        Text(
+            text = ":",
+            color = Color.White,
+            fontSize = 15.sp
+        )
+
+        Text(
+            text = value,
+            color = Color.White,
+            fontSize = 15.sp,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier
+                .weight(1.35f)
+                .padding(start = 12.dp)
+        )
+    }
 }

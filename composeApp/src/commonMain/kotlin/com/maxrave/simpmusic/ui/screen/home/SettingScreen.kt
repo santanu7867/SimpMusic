@@ -2605,7 +2605,7 @@ fun SettingScreen(
         item(key = "about_us") {
             SettingGroup(title = stringResource(Res.string.about_us)) {
                 SettingItem(
-                    title = stringResource(Res.string.version),
+                    title = "About",
                     subtitle = stringResource(Res.string.version_format, VersionManager.getVersionName()),
                     onClick = {
                         navController.navigate(CreditDestination)

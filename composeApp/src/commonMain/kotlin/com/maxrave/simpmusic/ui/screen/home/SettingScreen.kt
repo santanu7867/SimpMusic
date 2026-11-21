@@ -2061,18 +2061,12 @@ fun SettingScreen(
                 title = stringResource(Res.string.sponsorBlock),
                 // The project's note sits under the card, where a grouped list keeps its explanations.
                 footer = {
-                    val beforeUrl = stringResource(Res.string.sponsor_block_intro).substringBefore("https://sponsor.ajay.app/")
-                    val afterUrl = stringResource(Res.string.sponsor_block_intro).substringAfter("https://sponsor.ajay.app/")
-                    Text(
-                    buildAnnotatedString {
-    append(beforeUrl)
-    append(afterUrl)
+    Text(
+        text = stringResource(Res.string.sponsor_block_intro)
+            .replace("https://sponsor.ajay.app/", ""),
+        style = typo().bodySmall,
+    )
 },
-                            
-                        },
-                        style = typo().bodySmall,
-                    )
-                },
             ) {
                 SettingItem(
                     title = stringResource(Res.string.enable_sponsor_block),

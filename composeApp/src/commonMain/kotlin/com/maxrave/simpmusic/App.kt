@@ -1043,7 +1043,7 @@ LaunchedEffect(Unit) {
                     )
                 }
 
-                if (showNotificationPermissionDialog || showDesktopNotificationPermissionDialog) {
+                if (false) {
                     var doNotShowAgain by remember { mutableStateOf(false) }
                     val dismissPermissionDialog = {
                         if (showDesktopNotificationPermissionDialog) {

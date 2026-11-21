@@ -3229,7 +3229,7 @@ fun SettingScreen(
         )
     }
 }
-}
+
 /**
  * The page's toolbar. Drawn twice, the way Playlist and Artist draw theirs: once inside the list,
  * where it scrolls away with the content, and once pinned above it.

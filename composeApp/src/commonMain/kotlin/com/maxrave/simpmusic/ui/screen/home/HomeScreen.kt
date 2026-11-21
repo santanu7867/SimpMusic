@@ -457,7 +457,7 @@ fun HomeScreen(
         if (openAppTime >= 10 && openAppTime % 10 == 0 && openAppTime <= 50) {
             showReviewDialog = true
         } else if ((openAppTime == 1 || openAppTime % 15 == 0) && openAppTime <= 60 && !shareLyricsPermissions) {
-            showRequestShareLyricsPermissions = true
+            showRequestShareLyricsPermissions = false
         } else if (openAppTime == 5) {
             // Blog promo: one-shot after 5 app opens, bump key suffix to re-promote later
             if (sharedViewModel.getString(BLOG_PROMO_KEY) != "true") {

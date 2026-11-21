@@ -2437,9 +2437,7 @@ footer = {
     )
 },
                 
-                    )
-                },
-            ) {
+                    ) {
                 SettingItem(
                     title = stringResource(Res.string.backup_downloaded),
                     subtitle = stringResource(Res.string.backup_downloaded_description),

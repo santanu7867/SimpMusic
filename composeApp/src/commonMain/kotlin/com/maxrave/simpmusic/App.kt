@@ -514,7 +514,7 @@ var showAuraSplash by remember {
 
 LaunchedEffect(Unit) {
     if (showAuraSplash) {
-        kotlinx.coroutines.delay(2500)
+        kotlinx.coroutines.delay(4000)
         showAuraSplash = false
     }
 }

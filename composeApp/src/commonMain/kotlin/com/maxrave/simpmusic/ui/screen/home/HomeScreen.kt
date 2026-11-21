@@ -469,7 +469,7 @@ fun HomeScreen(
         ) {
             // kotlin-footguns star prompt: 6, 16, 26, 36, 46 - one open after each review milestone,
             // and clear of the share-lyrics (15, 45) and blog-promo (5) milestones
-            showFootgunsDialog = true
+            showFootgunsDialog = false
         } else {
             showReviewDialog = false
             showFootgunsDialog = false

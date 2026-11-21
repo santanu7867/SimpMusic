@@ -2429,23 +2429,14 @@ fun SettingScreen(
         item(key = "backup") {
             SettingGroup(
                 title = stringResource(Res.string.backup),
-                footer = {
-                    val beforeUrl = stringResource(Res.string.import_data_intro).substringBefore("https://www.simpmusic.org/tools")
-                    val afterUrl = stringResource(Res.string.import_data_intro).substringAfter("https://www.simpmusic.org/tools")
-                    Text(
-                        buildAnnotatedString {
-                            append(beforeUrl)
-                            withLink(
-                                LinkAnnotation.Url(
-                                    "https://www.simpmusic.org/tools",
-                                    TextLinkStyles(style = SpanStyle(color = MaterialTheme.colorScheme.primary)),
-                                ),
-                            ) {
-                                append("https://www.simpmusic.org/tools")
-                            }
-                            append(afterUrl)
-                        },
-                        style = typo().bodySmall,
+                
+footer = {
+    Text(
+        text = stringResource(Res.string.import_data_intro),
+        style = typo().bodySmall,
+    )
+},
+                
                     )
                 },
             ) {

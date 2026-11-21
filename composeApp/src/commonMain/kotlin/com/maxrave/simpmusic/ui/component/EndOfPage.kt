@@ -28,21 +28,6 @@ fun EndOfPage(withoutCredit: Boolean = false) {
                 .height(280.dp),
         contentAlignment = Alignment.TopCenter,
     ) {
-        if (!withoutCredit) {
-            Text(
-                "@${now().year} " + stringResource(Res.string.app_name) + " " +
-                    stringResource(
-                        Res.string.version_format,
-                        VersionManager.getVersionName(),
-                    ) + "\nmaxrave-dev",
-                style = typo().bodySmall,
-                textAlign = TextAlign.Center,
-                modifier =
-                    Modifier
-                        .padding(
-                            top = 20.dp,
-                        ).alpha(0.8f),
-            )
-        }
+    
     }
 }

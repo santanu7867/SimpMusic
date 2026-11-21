@@ -2064,8 +2064,11 @@ fun SettingScreen(
                     val beforeUrl = stringResource(Res.string.sponsor_block_intro).substringBefore("https://sponsor.ajay.app/")
                     val afterUrl = stringResource(Res.string.sponsor_block_intro).substringAfter("https://sponsor.ajay.app/")
                     Text(
-                    
-                            append(afterUrl)
+                    buildAnnotatedString {
+    append(beforeUrl)
+    append(afterUrl)
+},
+                            
                         },
                         style = typo().bodySmall,
                     )

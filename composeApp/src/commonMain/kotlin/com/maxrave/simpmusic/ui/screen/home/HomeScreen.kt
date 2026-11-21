@@ -461,7 +461,7 @@ fun HomeScreen(
         } else if (openAppTime == 5) {
             // Blog promo: one-shot after 5 app opens, bump key suffix to re-promote later
             if (sharedViewModel.getString(BLOG_PROMO_KEY) != "true") {
-                showBlogPromoDialog = true
+                showBlogPromoDialog = false
             }
         } else if (openAppTime % 10 == 6 &&
             openAppTime <= 46 &&

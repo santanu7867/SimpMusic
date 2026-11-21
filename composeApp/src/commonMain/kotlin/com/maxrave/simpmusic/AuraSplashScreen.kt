@@ -16,8 +16,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import org.jetbrains.compose.resources.painterResource
-import composeApp.generated.resources.Res
-import composeApp.generated.resources.aura_splash
+import simpmusic.composeapp.generated.resources.Res
+import simpmusic.composeapp.generated.resources.aura_splash
+
 
 @Composable
 fun AuraSplashScreen() {

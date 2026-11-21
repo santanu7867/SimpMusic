@@ -2762,6 +2762,7 @@ fun SettingScreen(
     }
     if (showLoginSyncDialog) {
         LoginSyncDialog(onDismiss = { showLoginSyncDialog = false })
+    }
     
     if (showYouTubeAccountDialog) {
         BasicAlertDialog(
